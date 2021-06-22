@@ -1,0 +1,59 @@
+<div class="container col-md-12 mt-4">
+
+  <a routerLink="/Create_Produit" class="btn btn-primary">
+    Nouvelle Produit
+    <i class="fa fa-plus btn-group-vertical"  style="font-size: 24px;"></i>
+  </a>
+
+  <div class="row">
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-search"></i>
+          </div>
+        </div>
+        <input id="searchInput" type="text" class="form-control " autocomplete="off" (keyup)="onFilter()" placeholder="Search">
+        <button class="btn bg-transparent" style="margin-left: -40px; z-index: 100;" (click)="onClear()">
+          <i class="fa fa-times" style="color: lightgray;"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-striped mt-3">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nom</th>
+      <th>photo</th>
+      <th>prix</th>
+      <th>quantite</th>
+      <th>Categorie</th>
+      <th>Description</th>
+      <th>Modifier</th>
+      <th>Supprimer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of list;">
+      <td>{{ item.idProduit }}</td>
+      <td>{{ item.nomProduit }}</td>
+      <td>{{ item.photo }}</td>
+      <td>{{ item.prix }}</td>
+      <td>{{ item.quantite }}</td>
+      <td>{{ item.categorie }}</td>
+      <td>{{ item.description }}</td>
+      <td>
+        <button type="button"(click)="onEdit(item)" class="btn btn-secondary">Modifier</button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="onDelete(item)">Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

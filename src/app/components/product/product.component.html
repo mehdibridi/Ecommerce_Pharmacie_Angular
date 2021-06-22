@@ -1,0 +1,63 @@
+<!--Main layout-->
+<main class="mt-5 pt-4">
+  <div class="container dark-grey-text mt-5">
+
+    <!--Grid row-->
+    <div class="row wow fadeIn">
+
+      <!--Grid column-->
+      <div class="col-md-6 mb-4">
+
+        <img  *ngIf="this.currentProduit?.photo"[src]=getSantizeUrl(this.currentProduit?.photo)  class="img-fluid" alt="">
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-md-6 mb-4">
+
+        <!--Content-->
+        <div class="p-4">
+
+          <div class="mb-2">
+
+            <a>
+              <strong style="font-size: 30px;" class="badge red mr-1">{{currentProduit?.nomProduit}}</strong>
+            </a>
+            <a>
+              <span class="badge purple mr-1">{{currentProduit?.categorie}}</span>
+            </a>
+          </div>
+
+          <p class="lead">
+
+            <span>Prix: {{currentProduit?.prix}}$</span>
+          </p>
+
+          <p class="lead font-weight-bold">Description</p>
+
+          <p>{{currentProduit?.description}}</p>
+
+          <form [formGroup]="panierform" (ngSubmit)="onPanier()">
+            <!-- Default input -->
+            <input type="number" aria-label="Search" formControlName="quantite" class="form-control" style="width: 100px">
+            <button class="btn btn-primary btn-md my-0 p"  type="submit">Ajouter  panier
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+
+          </form>
+
+        </div>
+        <!--Content-->
+
+      </div>
+      <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+
+    <hr>
+  </div>
+</main>
+<!--Main layout-->
+
